@@ -165,46 +165,40 @@
 
       <div class="projectlist">
 
-        <div class="docshare">
-          <h2 class="project-name">Document Sharing App<br><br></h2>
-          <p class="para1">Developing a application facilitating exchange files between
-            users in real-time Application </p>
-          <div class="iconsforcontact">
-            <a href="https://github.com/HasaniWedagaedara"><i class='bx bxl-github' title="GitHub"></i></a>
-            <a href="https://www.linkedin.com/in/hasanimadhumali"><i class='bx bxl-linkedin' title="linkedin"></i></a>
-          </div>
-
-        </div>
-
-        <div class="ams">
-          <h2 class="project-name">Appointment Management System<br><br></h2>
-          <p class="para1">Mobile Application and the Web app to manage day today appointments between University Staff
-            and the
-            Students</p>
-          <div class="iconsforcontact">
-            <a href="https://github.com/HasaniWedagaedara/AMS-mobile-App"><i class='bx bxl-github'
-                title="GitHub"></i></a>
-            <a href="https://www.linkedin.com/in/hasanimadhumali"><i class='bx bxl-linkedin' title="linkedin"></i></a>
-          </div>
-
-        </div>
-
-        <div class="ml">
-          <h2 class="project-name">Sentiment Analysis ML Project<br><br></h2>
-          <p class="para1">Analyze the comments by using Naive Bayes and Logistic Regression
-            algorithms</p>
-          <div class="iconsforcontact">
-            <a href="https://github.com/HasaniWedagaedara/ML-Sentiment-Analysis"><i class='bx bxl-github'
-                title="GitHub"></i></a>
-            <a href="https://www.linkedin.com/in/hasanimadhumali"><i class='bx bxl-linkedin' title="linkedin"></i></a>
+        <div class="work">
+          <img src="images/ds.jpg" alt="docs">
+          <div class="layer">
+            <h2 class="project-name">Document Sharing App<br><br></h2>
+            <p class="para1">Developing a application facilitating exchange files between
+              users in real-time Application </p>
           </div>
         </div>
-        <div class="beachapp">
-          <h2 class="project-name">Beach Explorer Mobile App<br><br></h2>
-          <p class="para1">easy-to-use app for locals and tourists to discover the beauty of Sri Lanka's beaches</p>
-          <div class="iconsforcontact">
-            <a href="https://github.com/HasaniWedagaedara/Beach-App"><i class='bx bxl-github' title="GitHub"></i></a>
-            <a href="https://www.linkedin.com/in/hasanimadhumali"><i class='bx bxl-linkedin' title="linkedin"></i></a>
+
+        <div class="work">
+          <img src="images/ams.jpg" alt="docs">
+          <div class="layer">
+            <h2 class="project-name">Appointment Management System<br><br></h2>
+            <p class="para1">Mobile & Web app to manage day today appointments between University Staff
+              and the
+              Students</p>
+          </div>
+        </div>
+
+        <div class="work">
+          <img src="images/ml.png" alt="docs">
+          <div class="layer">
+            <h2 class="project-name">Sentiment Analysis ML Project<br><br></h2>
+            <p class="para1">Analyze the comments by using Naive Bayes and Logistic Regression
+              algorithms</p>
+          </div>
+        </div>
+
+
+        <div class="work">
+          <img src="images/ba.jpg" alt="docs">
+          <div class="layer">
+            <h2 class="project-name">Beach Explorer Mobile App<br><br></h2>
+            <p class="para1">easy-to-use app for locals and tourists to discover the beauty of Sri Lanka's beaches</p>
           </div>
         </div>
 
@@ -241,18 +235,38 @@
         </div>
 
         <div class=" right">
-          <form>
+          <form name="submit-to-google-sheet">
             <input type="text" name="Name" placeholder="Your Name" required>
             <input type="email" name="Email" placeholder="Your Email" required>
             <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
             <button type="submit">Submit</button>
           </form>
+          <span id="msg"></span>
         </div>
 
       </div>
 
     </div>
   </section>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx89_qg7h4eWlbfGepBlmxpEv7BYzN4PZNgD6W1pJjD7BYdl88VRvCmCrbl9nllhUgI/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML="Message Send Successfully!"
+          setTimeout(function(){
+            msg.innerHTML=""
+          },5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
 </body>
 
