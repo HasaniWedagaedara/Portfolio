@@ -16,15 +16,15 @@
   <header class="header">
     <nav>
       <img src="images/1.png" alt="logo" class="logo">
-      <ul>
+      <ul id="sidemenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <!-------------
-        <li><a href="#skills">Skills</a></li> -->
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <i class='bx bx-window-close' onclick="closemenu()"></i>
       </ul>
+      <i class='bx bx-menu' onclick="openmenu()"></i>
     </nav>
   </header>
 
@@ -109,52 +109,6 @@
     </div>
     </div>
   </section>
-
-  <!------------skills-------------
-
-  <section class="skills" id="skills">
-    <div class="container3">
-      <div class="subtitle3">
-        My <span class="skillhead">Skills</span>
-      </div>
-      <div class="skilllist">
-        <div class="cpp">Cpp
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-c-plus-plus'></i></a>
-        </div>
-        <div class="js">JavaScript
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-javascript'></i></a>
-        </div>
-        <div class="flutter">Flutter
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-flutter'></i></a>
-        </div>
-        <div class="html">HTML
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-html5'></i></a>
-        </div>
-        <div class="java">Java
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-java'></i></a>
-        </div>
-        
-        <div class="css">CSS
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-css3'></i></a>
-        </div>
-        
-        <div class="react">React
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-react'></i></a>
-        </div>
-        <div class="node">Node
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-nodejs'></i></a>
-        </div>
-        <div class="sql">MySQL
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bx-data'></i></a>
-        </div>
-        <div class="mongo">MongoDB
-          <a href="a" class="skillicons" title="GitHub"><i class='bx bxl-mongodb'></i></a>
-        </div>
-      </div>
-
-    </div>
-  </section>
--->
 
   <!------------projects------------->
 
@@ -266,6 +220,20 @@
         })
         .catch(error => console.error('Error!', error.message))
     })
+  </script>
+  <script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+      sidemenu.style.right ="0px";
+    }
+
+    function closemenu() {
+        sidemenu.style.right = "-150px";
+        
+      }
+    
+
   </script>
 
 </body>
